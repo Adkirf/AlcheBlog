@@ -32,9 +32,7 @@ export function init(posts, challenges){
 }
   
 export const getCategories = async () => {
-  if (!initializedPromise) {
-    throw new Error('Service not initialized');
-  }
+  
 
   await initializedPromise;
   return allCategories;
@@ -78,6 +76,17 @@ export const getRecentWinners = async () => {
   return winningArticles;
 };
 
+export const getChallenges = async (isAll)=> {
+  if (!initializedPromise) {
+    throw new Error('Service not initialized');
+  }
+
+  await initializedPromise;
+  if(isAll){
+    return allChallenges;
+  }
+  return currentChallenges;
+}
 
 export const getPostDetails = async (slug) => {
   if (!initializedPromise) {

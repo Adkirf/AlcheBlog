@@ -28,7 +28,7 @@ export async function getStaticProps() {
 
   const challengeFiles = fs.readdirSync("challenges");
   const challenges = challengeFiles.map((fileName) => {
-    const slug = fileName.replace(".md", "");
+    const slug = fileName.replace(".mdx", "");
     const readFile = fs.readFileSync(`challenges/${fileName}`, "utf-8");
     const { data: frontmatter } = matter(readFile);
 
