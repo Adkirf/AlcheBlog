@@ -4,8 +4,8 @@ title: "Learn how to build markdown blog using nextjs"
 challenge: 0
 excerpt: "Learn even more"
 featuredImage: images/image.png
-authorImage: images/image.png
 authorName: Adkirf
+authorLink: ""
 date: "2022-04-27"
 categories: [fashion, tech]
 

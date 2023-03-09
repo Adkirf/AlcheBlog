@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { FeaturedPosts } from '../sections/index';
 import { PostCard, Categories, PostWidget } from '../components';
 
-import {init} from "../services";
+import {getRecentWinners, init} from "../services";
 
 export default function Home({posts, challenges}) {
   init(posts, challenges);
@@ -21,7 +21,7 @@ export default function Home({posts, challenges}) {
         </div>
         <div className="lg:col-span-4 col-span-1">
           <div className="lg:sticky relative top-8">
-            <PostWidget /> 
+            <PostWidget getPosts={()=>getRecentWinners()} widgetHeader="Recent Winners" /> 
             <Categories /> 
           </div>
         </div>
@@ -45,7 +45,7 @@ export async function getStaticProps() {
 
   const challengeFiles = fs.readdirSync("challenges");
   const challenges = challengeFiles.map((fileName) => {
-    const slug = fileName.replace(".mdx", "");
+    const slug = fileName.replace(".md", "");
     const readFile = fs.readFileSync(`challenges/${fileName}`, "utf-8");
     const { data: frontmatter } = matter(readFile);
 
@@ -55,10 +55,11 @@ export async function getStaticProps() {
     };
   });
 
+  
   return {
     props: {
       posts,
-      challenges,
+      challenges
     },
   };
 }

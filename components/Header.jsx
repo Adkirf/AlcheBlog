@@ -4,13 +4,6 @@ import Link from 'next/link';
 import { getCategories } from '../services';
 
 const Header = () => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    getCategories().then((newCategories) => {
-      setCategories(newCategories);
-    });
-  });
 
   return (
     <div className="container mx-auto px-10 mb-8">
@@ -20,7 +13,7 @@ const Header = () => {
             <span className="cursor-pointer font-bold text-4xl text-white">AlcheBlog</span>
           </Link>
         </div>
-        <div className="hidden md:float-left md:contents">
+        <div className="flex flex-row-reverse mt-4 md:float-left md:contents">
           <Link key="articles" href="/articles">
                 <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">Articles</span>
           </Link>

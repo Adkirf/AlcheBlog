@@ -11,3 +11,6 @@ export { default as FeaturedPostCard } from './FeaturedPostCard'
 export { default as AdjacentPostCard } from './AdjacentPostCard';
 export { default as Loader } from './Loader'
 export { default as Countdown } from './Countdown'
+export { default as ChallengeCover } from './ChallengeCover'
+export { default as ChallengeWinners} from "./ChallengeWinners"
+export { default as ChallengeDetail } from "./ChallengeDetail"

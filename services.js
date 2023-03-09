@@ -7,7 +7,8 @@ const allChallenges = [];
 const currentChallenges = [];
 const allCategories = [];
 
-export function init(posts, challenges){
+ export function init(posts, challenges){
+  
   if(!initializedPromise){
     initializedPromise = new Promise((resolve, reject) => {
       posts.map((post)=>{
@@ -29,29 +30,17 @@ export function init(posts, challenges){
     });
   }
   
-}
+} 
+
   
 export const getCategories = async () => {
-  
-
   await initializedPromise;
+
   return allCategories;
 };
 
 
-export const getPosts = async ()=> {
-  if (!initializedPromise) {
-    throw new Error('Service not initialized');
-  }
-
-  await initializedPromise;
-  return allPosts;
-}
-
 export const getFeaturedPosts = async () => {
-  if (!initializedPromise) {
-    throw new Error('Service not initialized');
-  }
 
   await initializedPromise;
   const winningPost = [];
@@ -66,9 +55,6 @@ export const getFeaturedPosts = async () => {
 };
 
 export const getRecentWinners = async () => {
-  if (!initializedPromise) {
-    throw new Error('Service not initialized');
-  }
 
   await initializedPromise;
   const winningIds =  allChallenges[allChallenges.length-1].frontmatter.winners;
@@ -76,33 +62,20 @@ export const getRecentWinners = async () => {
   return winningArticles;
 };
 
-export const getChallenges = async (isAll)=> {
-  if (!initializedPromise) {
-    throw new Error('Service not initialized');
-  }
+export const getCurrentChallenges = async ()=> {
 
   await initializedPromise;
-  if(isAll){
-    return allChallenges;
-  }
   return currentChallenges;
 }
 
-export const getPostDetails = async (slug) => {
-  if (!initializedPromise) {
-    throw new Error('Service not initialized');
-  }
-
+export const getChallengeWinners = async (challenge) =>{
   await initializedPromise;
+  const winners = allPosts.filter((post)=>challenge.frontmatter.winners.includes(post.frontmatter.id))
+  return winners;
+}
 
-  return null;
-};
-
-export const getSimilarPosts = async (post) => {
-  if (!initializedPromise) {
-    throw new Error('Service not initialized');
-  }
-
+export const getRelatedPosts = async (post) => {
+  
   await initializedPromise;
   const challengeId = post.frontmatter.challenge;
   const similarPosts = allPosts.filter((post)=>post.frontmatter.challenge===challengeId);
@@ -110,16 +83,14 @@ export const getSimilarPosts = async (post) => {
   return similarPosts;
 };
 
-export const getAdjacentPosts = async (createdAt, slug) => {
-  
-  return null;
+export const getPostsByCategories = async (categories) => {
+  await initializedPromise;
+  let selectedPosts = allPosts;
+  selectedPosts = selectedPosts.filter((post) =>
+    post.frontmatter.categories.some((category) => categories.includes(category))
+  );
+  return categories.length? selectedPosts:allPosts;
 };
-
-export const getCategoryPost = async (slug) => {
-  
-  return null;
-};
-
 
 export const submitComment = async (obj) => {
   
