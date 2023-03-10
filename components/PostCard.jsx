@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import moment from 'moment';
 import Link from 'next/link'
 
+import {getPostExtras} from "../services"
+
 const PostCard = ({post}) => {
+  const [postExtras, setPostExtras] = useState({post});
+
+  useEffect(()=>{
+    getPostExtras(post)
+      .then((result)=>{
+        setPostExtras(result)
+      });
+  },[])
+  
   return (
     <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
@@ -18,16 +29,12 @@ const PostCard = ({post}) => {
         </Link>
       </h1>
       <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
-        <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
-          <img 
-            src={post.frontmatter.authorImage} 
-            alt={post.frontmatter.authorName}
-            className="align-middle rounded-full" 
-            height="30px"
-            width="30px"
-            />
+        <div className="flex flex-row items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
             <p className="inline align-middle text-gray-700 ml-2 text-lg">
-              {post.authorName}
+              {post.frontmatter.authorName}
+            </p>
+            <p className="inline align-middle text-gray-700 ml-2 text-lg">
+              {postExtras.postChallenge? `- ${postExtras.postChallenge.frontmatter.theme} - ` : ""}
             </p>
         </div>
         <div className="font-medium text-gray-700">

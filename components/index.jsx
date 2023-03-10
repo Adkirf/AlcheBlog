@@ -1,5 +1,5 @@
 export { default as PostCard} from './PostCard';
-export { default as Categories} from './Categories';
+export { default as ChallengeWidget } from './ChallengeWidget';
 export { default as PostWidget} from './PostWidget';
 export { default as Header} from './Header';
 export { default as Layout} from './Layout';
@@ -12,5 +12,4 @@ export { default as AdjacentPostCard } from './AdjacentPostCard';
 export { default as Loader } from './Loader'
 export { default as Countdown } from './Countdown'
 export { default as ChallengeCover } from './ChallengeCover'
-export { default as ChallengeWinners} from "./ChallengeWinners"
 export { default as ChallengeDetail } from "./ChallengeDetail"

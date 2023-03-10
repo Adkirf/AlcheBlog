@@ -6,37 +6,40 @@ import Link from 'next/link';
 import moment from "moment"
 
 import {ChallengeCover, Countdown} from "../../components";
-import {init, getCurrentChallenges} from "../../services";
+import {init, getCurrentChallenges, getRecentChallenges} from "../../services";
 
 export default function Home({posts, challenges}) {
   init(posts, challenges);
 
   const [currentChallenges, setCurrentChallenges] = useState([])
+  const [recentChallenges, setRecentChallenges] = useState([])
 
   useEffect(() => {
     
-    getCurrentChallenges().then((newCurrentChallenges)=>{
-      setCurrentChallenges(newCurrentChallenges);
-    })
+    getCurrentChallenges()
+      .then((result)=>setCurrentChallenges(result))
+
+    getRecentChallenges()
+      .then((result)=>setRecentChallenges(result));
   });
 
   return (
     <div className="container mx-auto px-10 mb-8 h-auto">
-      <h1 className="text-3xl font-bold mb-8 text-slate-900 underline cursor-default">Current </h1>
+      <h1 className="text-3xl mb-8 text-slate-800 cursor-default">Current Challanges: </h1>
       <div className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-12 mb-16">
         {currentChallenges.map((challenge, index) => (
           <Link key={index} href={`/challenges/${challenge.slug}`}>
               <ChallengeCover key={index} challenge={challenge} />
               <div className='mt-4 '>
-                <Countdown classname="mt-4" date={challenge.frontmatter.endingDate}/>
+                <Countdown date={challenge.frontmatter.endingDate}/>
               </div>
           </Link>
           
             ))}
       </div>
-      <h1 className="text-3xl font-bold mb-8 text-slate-900 underline cursor-default"> Recent </h1>
+      <h1 className="text-3xl mb-8 text-slate-800 cursor-default"> Recent Challenges</h1>
       <div className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-12 mb-16">
-        {challenges.map((challenge, index) => (
+        {recentChallenges?.map((challenge, index) => (
           <Link key={index} href={`/challenges/${challenge.slug}`}>
               <ChallengeCover key={index} challenge={challenge} />
               <div className="font-medium text-gray-900 mt-4 flex justify-center">

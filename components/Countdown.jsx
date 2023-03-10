@@ -22,7 +22,7 @@ const Countdown = ({date}) => {
 
   return (
     <>
-      <p className="text-pink-500 text-center font-bold">
+      <p className="text-pink-500 text-center font-black text-xl">
         <span>{days}d </span>
         <span>{hours}h </span>
         <span>{minutes}min </span>

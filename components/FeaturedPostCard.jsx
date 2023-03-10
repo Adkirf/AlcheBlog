@@ -11,9 +11,9 @@ const FeaturedPostCard = ({ post, rank }) => {
       <p className="text-white mb-4 text-shadow font-semibold text-xs">{moment(post.frontmatter.date).format('MMM DD, YYYY')}</p>
       <p className="text-white mb-4 text-shadow font-semibold text-2xl text-center">{post.frontmatter.title}</p>
       <div className="flex items-center absolute bottom-2 w-full justify-start ml-2">
-        <span className="border border-2 font-bold border-pink-500 text-pink-500 text-lg rounded-full px-3 py-1 cursor-pointer">
+        {rank?(<span className="border border-2 font-bold border-pink-500 text-pink-500 text-lg rounded-full px-3 py-1 cursor-pointer">
             {rank}.
-        </span>
+        </span>):("")}
         <p className="inline align-middle text-white text-shadow ml-2 font-medium">{post.frontmatter.authorName}</p>
       </div>
     </div>
