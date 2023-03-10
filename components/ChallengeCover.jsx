@@ -12,5 +12,7 @@ const ChallengeCover = ({challenge}) =>{
     )
   }
 
+
+
   export default ChallengeCover;
 

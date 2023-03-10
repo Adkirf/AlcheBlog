@@ -7,7 +7,7 @@ featuredImage: https://miro.medium.com/v2/resize%3Afit%3A1400/format%3Awebp/1%2A
 authorName: ThatDudelnWEB3
 authorLink: https://medium.com/@ThatDudeInWEB3/polygon-network-deepdive-a-step-by-step-guide-for-newbies-7daa8a279d2d
 date: "2022-03-07"
-categories: ["NFT", "Tokens", "Crypto"]
+categories: ["Trading", "Coin", "Crypto"]
 ---
 
 

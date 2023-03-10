@@ -7,7 +7,7 @@ featuredImage: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCmk2S
 authorName: Muscleman
 authorLink: https://muscleman.substack.com/p/soulbound-tokens?utm_source=share&utm_medium=android
 date: "2022-02-22"
-categories: ["NFT", "Tokens", "Crypto"]
+categories: ["NFT", "Tech", "Crypto"]
 ---
 Soulbound tokens (SBTs), also known as "Proof of Belonging" tokens, are a type of cryptocurrency that are tied to a specific individual or entity and cannot be transferred to another person. This means that the token is permanently linked to the owner and cannot be sold, traded, or transferred to another person. 
 _____________________________________

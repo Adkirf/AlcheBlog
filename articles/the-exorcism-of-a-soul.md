@@ -7,7 +7,7 @@ featuredImage: https://miro.medium.com/v2/resize%3Afit%3A1400/format%3Awebp/0%2A
 authorName: ThadT
 authorLink: https://medium.com/@thadt/the-exorcism-of-a-soul-of-possessions-and-soul-bound-tokens-22d04a64cb61
 date: "2022-02-06"
-categories: ["NFT", "Tokens", "Crypto"]
+categories: ["NFT", "Soulbound", "Crypto"]
 ---
 CP: I have never seen anything quite like this before — I must say I exhausted all of my years as an exorcist trying to fight this token which bound itself so tightly to your soul.
 

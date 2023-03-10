@@ -7,7 +7,7 @@ featuredImage: https://miro.medium.com/v2/resize%3Afit%3A1400/format%3Awebp/1%2A
 authorName: Parshvi Srivastava
 authorLink: https://medium.com/coinmonks/polygon-spiderman-of-web3-3a2cd0a2f5d1
 date: "2022-03-08"
-categories: ["NFT", "Tokens", "Crypto"]
+categories: ["Coin", "Tokens", "Crypto"]
 ---
 
 The world of Ethereum is expanding rapidly, and with it, the need for efficient and scalable blockchain solutions. This is where Polygon comes in, playing the role of the friendly neighborhood Spiderman. Just like Spiderman, Polygon has adapted and evolved to suit the ecosystem’s needs.

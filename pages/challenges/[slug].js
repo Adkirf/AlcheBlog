@@ -4,9 +4,9 @@ import Link from 'next/link';
 import fs from "fs"
 import matter from "gray-matter";
 
-import {init, getChallengeWinners} from "../../services"
+import {init, getChallengeWinners, getPostsByChallenge} from "../../services"
 import { PostCarousel } from '@/sections';
-import {ChallengeDetail, PostWidget, Countdown} from "../../components"
+import {ChallengeDetail, PostWidget, Countdown,ChallengeHeader} from "../../components"
 
 
 const responsive = {
@@ -34,8 +34,8 @@ function ChallengeDetails({challenge, posts, challenges}) {
 
     useEffect(()=>{
         getChallengeWinners(challenge)
-        .then((newWinners) => {
-            setWinners(newWinners)
+        .then((result) => {
+            setWinners(result)
         })
     }, [])
 
@@ -43,26 +43,7 @@ function ChallengeDetails({challenge, posts, challenges}) {
         <div className="container mx-auto px-10 mb-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="lg:col-span-8 col-span-1">
-                    {winners &&  <PostCarousel posts={winners} responsive={responsive}/> }
-                    <div className="text-center mt-4 pt-4 pb-4 relative rounded-lg bg-black bg-opacity-20">
-                        {winners.length>0?(
-                            <div> 
-                                <h2 className='font-bold text-2xl text-slate-900 mb-8'> 🏆  Visit the Winners </h2>
-                                {winners.map((winner,index)=>(
-                                    <Link href={winner.frontmatter.authorLink} key={index} className='flex flex-row justify-center items-center mb-2'>
-                                        <h2 className='text-bold text-xl text-pink-500 mr-2'>{index + 1}. </h2>
-                                        <p className='text-bold text-lg text-white'> {winner.frontmatter.authorName}</p>
-                                    </Link>
-                                 ))}
-                            </div>
-                        ):(
-                            <div>
-                                 <h2 className='font-bold text-2xl text-slate-900 mb-4'> Time for Submissions </h2>
-                                 <Countdown date={challenge.frontmatter.endingDate}/>
-                            </div>
-                        )}
-                        
-                    </div>
+                    <ChallengeHeader challenge={challenge}/>
                 </div>
             <div className="lg:col-span-4 col-span-1">
                 <div className="lg:sticky relative lg:top-8 ">
@@ -70,7 +51,7 @@ function ChallengeDetails({challenge, posts, challenges}) {
                 </div>
             </div>
             <div className='lg:col-span-8 col-span-1'>
-                <PostWidget getPosts={()=>getChallengeWinners(challenge)} widgetHeader="All Submissions"/>                
+                <PostWidget getPosts={()=>getPostsByChallenge(challenge)} widgetHeader="All Submissions"/>                
             </div>
         </div>
         </div>

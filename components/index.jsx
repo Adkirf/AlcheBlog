@@ -8,8 +8,9 @@ export { default as CommentsForm} from './CommentsForm';
 export { default as Comments} from './Comments';
 export { default as PostDetail} from './PostDetail';
 export { default as FeaturedPostCard } from './FeaturedPostCard'
-export { default as AdjacentPostCard } from './AdjacentPostCard';
 export { default as Loader } from './Loader'
 export { default as Countdown } from './Countdown'
 export { default as ChallengeCover } from './ChallengeCover'
 export { default as ChallengeDetail } from "./ChallengeDetail"
+export { default as ChallengeCard} from "./ChallengeCard"
+export { default as ChallengeHeader } from "./ChallengeHeader"

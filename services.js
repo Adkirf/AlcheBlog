@@ -14,7 +14,7 @@ export function isInit(){
 export function init(initPosts, challenges) {
   if (!initializedPromise) {
     console.log("initializing");
-    new Promise((resolve, reject) => {
+    initializedPromise = new Promise((resolve, reject) => {
       initPosts.forEach((post) => {
         post.postExtras = {};
         posts.push(post);
@@ -31,7 +31,7 @@ export function init(initPosts, challenges) {
           currentChallenges.push(challenge);
         }
       });
-      resolve(initializedPromise=true);
+      resolve();
     });
 
   }
@@ -170,6 +170,11 @@ export const getPostsByCategories = async (categories) => {
   );
   return categories.length? selectedPosts:posts;
 };
+
+export const getPostsByChallenge = async (challenge) => {
+  await initializedPromise;
+  return posts.filter(post=>post.frontmatter.challenge===challenge.frontmatter.id)
+}
 
 export const submitComment = async (obj) => {
   

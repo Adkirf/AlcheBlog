@@ -14,6 +14,7 @@ const PostDetail = ({ post }) => {
         setPostExtras(result)
       })
   },[])
+  
   return (
     <>
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-4 cursor-default">
@@ -42,7 +43,7 @@ const PostDetail = ({ post }) => {
           
           </div>
           <h1 className="mb-8 text-3xl font-semibold">{post.frontmatter.title}</h1>
-          <div dangerouslySetInnerHTML={{__html:md().render(post.content)}}>
+          <div dangerouslySetInnerHTML={{__html: md().render(post.content)}}>
             </div>
         </div>
       </div>

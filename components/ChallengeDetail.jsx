@@ -6,7 +6,7 @@ const ChallengeDetail = ({challenge}) => {
 
   return (
     <>
-    <div className="relative bg-white shadow-lg rounded-lg lg:p-8 pb-12">
+    <div className="relative bg-white shadow-lg rounded-lg lg:p-8 pb-12 overflow-hidden">
       <ChallengeCover challenge={challenge}/>
       {challenge.content}
     </div>
