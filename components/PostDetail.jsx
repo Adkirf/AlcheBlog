@@ -4,17 +4,11 @@ import moment from 'moment';
 import md from "markdown-it"
 import Link from 'next/link';
 
-import {getAuthor, getPostExtras} from "../services"
-import {Author} from "./index"
+import {getPostExtras} from "../services"
 
 const PostDetail = ({ post }) => {
-  const [author, setAuthor] = useState({})
   const [openPost, setPostExtras] = useState({post})
   useEffect(()=>{
-    getAuthor(post)
-      .then((result)=>{
-        setAuthor(result)
-      })
     getPostExtras(post)
       .then((result)=>{
         setPostExtras(result)
@@ -24,7 +18,7 @@ const PostDetail = ({ post }) => {
     <>
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-4 cursor-default">
         <div className="relative overflow-hidden shadow-md mb-8">
-          <img src={`../${post.frontmatter.featuredImage}`} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
+          <img src={post.frontmatter.featuredImage} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
         </div>
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full">
@@ -52,7 +46,6 @@ const PostDetail = ({ post }) => {
             </div>
         </div>
       </div>
-      <Author author={author} />
     </>
   );
 };

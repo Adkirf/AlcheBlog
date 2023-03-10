@@ -3,12 +3,11 @@ import React,{useState,useEffect} from 'react';
 import fs from "fs";
 import matter from "gray-matter";
 
-import { PostDetail, Categories, PostWidget } from '../../components';
-import { isInit, init, getPost, getPosts, getChallenges, getRelatedPosts } from '../../services';
+import { PostDetail, Author, PostWidget } from '../../components';
+import { isInit, init, getPost, getPosts, getChallenges, getRelatedPosts, getAuthor } from '../../services';
 
 const PostDetails = ({ post, posts, challenges }) => {
   init(posts, challenges);
-
   const widgetHeader = ()=>{
     var header = "Realted Post: ";
     post.frontmatter.categories.map((category)=>{
@@ -17,6 +16,15 @@ const PostDetails = ({ post, posts, challenges }) => {
     return header;
   };
 
+  const [author, setAuthor] = useState({})
+  
+  useEffect(()=>{
+    getAuthor(post)
+      .then((result)=>{
+        setAuthor(result);
+      })
+  },[])
+
 
   return (
     <>
@@ -24,7 +32,7 @@ const PostDetails = ({ post, posts, challenges }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           <div className="col-span-1 lg:col-span-8">
             <PostDetail post={post} />
-            
+            <Author author={author}/>
           </div>
           <div className="col-span-1 lg:col-span-4">
             <div className="relative lg:sticky ">

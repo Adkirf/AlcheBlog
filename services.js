@@ -159,11 +159,7 @@ export const getAuthor = async (post)=> {
     posts: authorPosts,
     wins: authorWins
   }
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(author);
-    }, 2000);
-  });
+  return author;
 }
 
 export const getPostsByCategories = async (categories) => {

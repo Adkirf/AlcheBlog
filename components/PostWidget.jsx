@@ -15,11 +15,10 @@ const PostWidget = ({getPosts, widgetHeader}) => {
       {relatedPosts.map((post, index) => (
         <div key={index} className="flex items-center w-full mb-4 border-b pb-2">
           <img 
-            src={`../${post.frontmatter.featuredImage}`} 
+            src={post.frontmatter.featuredImage}
             alt={post.frontmatter.title} 
-            height={60}
-            width={60}
-            className="align-middle h-fit rounded-full"
+            width={64}
+            className="align-middle h-16 object-cover rounded-full"
             />
           <div className="flex-grow ml-4">
             <p className="text-gray-500 font-xs">{moment(post.frontmatter.endingDate).format('MMM DD, YYYY')}</p>
