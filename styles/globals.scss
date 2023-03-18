@@ -24,3 +24,10 @@ body {
     background-size: cover;
   }
 }
+
+[draggable="true"] {
+  -moz-user-select: none;
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+  user-drag: element;
+}

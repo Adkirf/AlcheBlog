@@ -14,3 +14,5 @@ export { default as ChallengeCover } from './ChallengeCover'
 export { default as ChallengeDetail } from "./ChallengeDetail"
 export { default as ChallengeCard} from "./ChallengeCard"
 export { default as ChallengeWinners} from "./ChallengeWinners"
+export { default as DraggableBar} from "./DraggableBar"
+
