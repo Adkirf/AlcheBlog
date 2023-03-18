@@ -42,8 +42,7 @@ export default function Home({posts, challenges}) {
   return (
     <div className="container mx-auto px-10 mb-8">
 
-      <div className="md:grid md:grid-cols-4 gap-4 flex flex-col-reverse">
-        <DraggableBar />
+      <div className="md:grid md:grid-cols-4 gap-4 md:gap-8 flex flex-col-reverse">
         <div className='grid col-span-3 lg:grid-cols-3 gap-2 md:grid-cols-2'> 
             {selectedPosts.map((post, index) => (
               <FeaturedPostCard key={index} post={post} />
@@ -62,6 +61,8 @@ export default function Home({posts, challenges}) {
                 </button>
               ))}
             </div>
+            <DraggableBar />
+
           </div>
         </div>
       </div>

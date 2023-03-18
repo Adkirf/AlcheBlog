@@ -1,25 +1,28 @@
 import { useState, useEffect, useRef } from 'react';
 
 const DraggableBar = () => {
-  
-  useDragger("circle","parent");
+  const [value, setValue] = useState("0")
+
+  useDragger("circle","parent", setValue);
 
   return (
-    <div id="parent" className="bar-container flex justify-center items-center h-8" >
-        <div  className="relative w-80 h-2 bg-gray-400" />
-        <div className="absolute w-6 h-6 rounded-full bg-red-500 cursor-move" id="circle"/>
+    <div id="parent" className="relative bar-container flex justify-center items-center h-8 w-full" >
+        <div className="absolute -left-6 flex z-10 w-12 h-12 rounded-full bg-pink-500 cursor-move align-center items-center justify-center" id="circle"> 
+            {value} %
+        </div>
+        <div  className="relative w-full h-2 bg-slate-800" />
     </div>
   );
 }
 
 export default DraggableBar;
 
-function useDragger(circleId, parentId) {
+function useDragger(circleId, parentId, setValue) {
 
     const isClicked = useRef(false);
   
     const coords = useRef({
-      startX: 0,
+      startX: -12,
       lastX: 0,
     })
   
@@ -47,10 +50,17 @@ function useDragger(circleId, parentId) {
         
 
         const clientX = e.touches? e.touches[0].clientX  : e.clientX;
-        const nextX = clientX - coords.current.startX + coords.current.lastX;
-  
+        var nextX = clientX - coords.current.startX + coords.current.lastX;
+        
+        if(nextX <= 0 - target.offsetWidth /2){
+            nextX = 0 - target.offsetWidth/2;
+        }
+        if(nextX >= container.offsetWidth - target.offsetWidth/2){
+            nextX = container.offsetWidth - target.offsetWidth /2;
+        }
         target.style.left = `${nextX}px`;
-        console.log(clientX);
+        const newValue = (nextX +target.offsetWidth/2)/ container.offsetWidth * 100;
+        setValue(Math.round(newValue))
       }
 
   
