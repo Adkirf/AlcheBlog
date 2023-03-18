@@ -33,9 +33,6 @@ const PostCard = ({post}) => {
             <p className="inline align-middle text-gray-700 ml-2 text-lg">
               {post.frontmatter.authorName}
             </p>
-            <p className="inline align-middle text-gray-700 ml-2 text-lg">
-              {postExtras.postChallenge? `- ${postExtras.postChallenge.frontmatter.theme} - ` : ""}
-            </p>
         </div>
         <div className="font-medium text-gray-700">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

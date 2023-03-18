@@ -13,4 +13,4 @@ export { default as Countdown } from './Countdown'
 export { default as ChallengeCover } from './ChallengeCover'
 export { default as ChallengeDetail } from "./ChallengeDetail"
 export { default as ChallengeCard} from "./ChallengeCard"
-export { default as ChallengeHeader } from "./ChallengeHeader"
+export { default as ChallengeWinners} from "./ChallengeWinners"

@@ -7,10 +7,6 @@ const recentChallenges = [];
 const currentChallenges = [];
 const categories = [];
 
-export function isInit(){
-  return initializedPromise;
-}
-
 export function init(initPosts, challenges) {
   if (!initializedPromise) {
     console.log("initializing");
@@ -36,27 +32,6 @@ export function init(initPosts, challenges) {
 
   }
 }
-
-export function getPost(slug){
-  if(!initializedPromise){
-    throw new Error("not initialized");
-  }
-  const post =posts.find((post)=> post.slug == slug);
-  return post;
-}
-export function getPosts(){
-  if(!initializedPromise){
-    throw new Error("not initialized");
-  }
-  return posts;
-}
-export function getChallenges(){
-  if(!initializedPromise){
-    throw new Error("not initialized");
-  }
-  return [...currentChallenges,...recentChallenges];
-}
-
 
 export const getPostExtras = async (post) => {
   await initializedPromise;
@@ -117,6 +92,18 @@ export const getCurrentChallenges = async ()=> {
 export const getRecentChallenges = async () => {
   await initializedPromise;
   return recentChallenges;
+}
+
+export const getRecentPosts = async () => {
+  await initializedPromise;
+  var result = [];
+  if(currentChallenges.length){
+    const currentChallengesIds = currentChallenges.map(challenge => challenge.frontmatter.id)
+    result = posts.filter((post => currentChallengesIds.includes(post.frontmatter.challenge)));
+  }else{
+    result = posts.filter(post => post.frontmatter.challenge === recentChallenges[recentChallenges.length-1])
+  }
+  return result;
 }
 
 export const getChallengeWinners = async (challenge) =>{

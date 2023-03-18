@@ -9,9 +9,211 @@ authorLink: https://ckraczkowsky.medium.com/soulbound-tokens-the-evolved-form-of
 date: "2022-02-11"
 categories: ["NFT", "Tokens", "Crypto"]
 ---
-What are soulbound tokens?
-In summary, soulbound tokens (SBTs) are non-fungible tokens (NFTs) that, once minted to the individual, cannot be transferred or sold. So how did we get this definition
-_____________________________________
+
+- __[Link](http://localhost:3000/articles/soulbound-tokens-evolved-form-of-nfts)__ - Link tags by using brackets "[Tag]" 
+
+Use " --- " or " ___ " or " *** " for underlines
+
+--- 
+
+You can use multiple for thicker lines
+___
+---
+***
+
+You can __bold__ by using "__ bolded __ " or
+"_ italic _" for _italic_
+
+~~Strikethrough~~
 
 
-The origination of soulbound tokens is popularly attributed to a blog post by Ethereum’s Vitalik Buterin which was then expanded on in a follow-up paper between Buterin and other contributors. In his blog, Buterin first describes the concept of “soulbound” as something that remains in the individual’s possession unable to be transferred or sold. Tracing the idea back to World of Warfract game mechanics, Buterin notes that soulbound items in the game enter the player’s possession upon the completion of a hard or risky task. In the game this keeps things interesting , however the concept’s importance expands to blockchain as well where tools to minimize rent seeking behavior are always in vogue. Rent seeking behavior involves individuals providing minimal value as a whole but slowly accumulating capital to gain power and it is problematic for blockchain networks and game mechanics alike. As in game mechanics, this behavior is detrimental to blockchains as individuals provides little value over but slwoly accumulates capital and eventually just purchases the item. While for World of Warcraft this capital are items and this power are particulary potent items, for blockchain network capital is captured in tokens and power is conferred in monetary, governance, and other forms. So Buterin’s blog naturally transitions to talking about tokens, specifically non-fungible tokens (NFTs). He introduces cases in which the transferability of NFTs is illogical. For example, the proof of attendance protocol (POAP) where individuals are minted NFTs to prove they were present at a particular event. Some projects tried to utilize these POAP NFTs to provide exclusive opportunities which gave them monetary value which of course meant that a market quickly formed to sell them to the highest bidder. Now one of these NFTs is sitting in someone’s wallet for an event they never attende
+## Blockquotes
+
+
+> Blockquotes can also be nested...
+>> ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
+
+
+## Lists
+
+Unordered
+
++ Create a list by starting a line with `+`, `-`, or `*`
++ Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    * Ac tristique libero volutpat at
+    + Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
++ Very easy!
+
+Ordered
+
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+
+
+1. You can use sequential numbers...
+1. ...or keep all the numbers as `1.`
+
+Start numbering with offset:
+
+57. foo
+1. bar
+
+
+## Code
+
+Inline `code`
+
+Indented code
+
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
+
+
+Block code "fences"
+
+```
+Sample text here...
+```
+
+Syntax highlighting
+
+``` js
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+```
+
+## Tables
+
+| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+Right aligned columns
+
+| Option | Description |
+| ------:| -----------:|
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+
+## Links
+
+[link text](http://dev.nodeca.com)
+
+[link with title](http://nodeca.github.io/pica/demo/ "title text!")
+
+Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+
+
+## Images
+
+![Minion](https://octodex.github.com/images/minion.png)
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+
+Like links, Images also have a footnote style syntax
+
+![Alt text][id]
+
+With a reference later in the document defining the URL location:
+
+[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+
+
+## Plugins
+
+The killer feature of `markdown-it` is very effective support of
+[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
+
+
+### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
+
+> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
+>
+> Shortcuts (emoticons): :-) :-( 8-) ;)
+
+see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
+
+
+### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
+
+- 19^th^
+- H~2~O
+
+
+### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
+
+++Inserted text++
+
+
+### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
+
+==Marked text==
+
+
+### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
+
+Footnote 1 link[^first].
+
+Footnote 2 link[^second].
+
+Inline footnote^[Text of inline footnote] definition.
+
+Duplicated footnote reference[^second].
+
+[^first]: Footnote **can have markup**
+
+    and multiple paragraphs.
+
+[^second]: Footnote text.
+
+
+### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
+
+Term 1
+
+:   Definition 1
+with lazy continuation.
+
+Term 2 with *inline markup*
+
+:   Definition 2
+
+        { some code, part of Definition 2 }
+
+    Third paragraph of definition 2.
+
+_Compact style:_
+
+Term 1
+  ~ Definition 1
+
+Term 2
+  ~ Definition 2a
+  ~ Definition 2b
+
+
+### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
+
+This is HTML abbreviation example.
+
+It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
+
+*[HTML]: Hyper Text Markup Language
+
+### [Custom containers](https://github.com/markdown-it/markdown-it-container)
+
+::: warning
+*here be dragons*
+:::

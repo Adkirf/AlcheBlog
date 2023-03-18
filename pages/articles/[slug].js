@@ -4,7 +4,7 @@ import fs from "fs";
 import matter from "gray-matter";
 
 import { PostDetail, Author, PostWidget } from '../../components';
-import { isInit, init, getPost, getPosts, getChallenges, getRelatedPosts, getAuthor } from '../../services';
+import { init, getRelatedPosts, getAuthor } from '../../services';
 
 const PostDetails = ({ post, posts, challenges }) => {
   init(posts, challenges);
@@ -62,22 +62,7 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps({ params: {slug}}){
-    if(isInit()){
-      const post = getPost(slug);
-      const fileName = fs.readFileSync(`articles/${slug}.md`, "utf-8")
-      const {data:frontmatter, content} = matter(fileName);
-      post.content = content;
-      const posts = getPosts();
-      const challenges = getChallenges();
-      return {
-        props: {
-            post,
-            posts,
-            challenges
-        }
-    } 
-  }
-  
+    
     const fileName = fs.readFileSync(`articles/${slug}.md`, "utf-8")
     const {data: frontmatter, content} = matter(fileName);
     const post = {frontmatter, content};

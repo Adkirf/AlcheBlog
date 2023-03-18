@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { PostCarousel } from '../sections/index';
 import { PostCard, ChallengeWidget, PostWidget } from '../components';
 
-import {init, getRecentWinners, getFeaturedPosts} from "../services";
+import {init, getRecentWinners, getFeaturedPosts, getRecentPosts} from "../services";
 
 const responsive = {
   superLargeDesktop: {
@@ -30,11 +30,16 @@ const responsive = {
 export default function Home({posts, challenges}) {
   init(posts, challenges);
   const [featuredPosts, setFeaturedPosts] = useState([])
+  const [recentPosts, setRecentPosts] = useState([])
 
   useEffect(() => {
     getFeaturedPosts() 
       .then((result)=>{
         setFeaturedPosts(result)
+      })
+    getRecentPosts()
+      .then((result)=>{
+        setRecentPosts(result);
       })
   }, [])
   
@@ -44,7 +49,7 @@ export default function Home({posts, challenges}) {
       {featuredPosts &&  <PostCarousel posts={featuredPosts} responsive={responsive}/> }
       <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-8 col-span-1">
-          {posts.map((post, index) => (
+          {recentPosts?.map((post, index) => (
             <PostCard key={index} post={post} />
           ))}
         </div>

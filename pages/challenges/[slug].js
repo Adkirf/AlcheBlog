@@ -5,9 +5,7 @@ import fs from "fs"
 import matter from "gray-matter";
 
 import {init, getChallengeWinners, getPostsByChallenge} from "../../services"
-import { PostCarousel } from '@/sections';
-import {ChallengeDetail, PostWidget, Countdown,ChallengeHeader} from "../../components"
-
+import {ChallengeDetail, PostWidget, ChallengeWinners} from "../../components"
 
 const responsive = {
     superLargeDesktop: {
@@ -42,18 +40,17 @@ function ChallengeDetails({challenge, posts, challenges}) {
     return (
         <div className="container mx-auto px-10 mb-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div className="lg:col-span-4 col-span-1">
+                    <div className="lg:sticky relative lg:top-8">
+                        <ChallengeDetail challenge={challenge}/>
+                    </div>
+                </div>
                 <div className="lg:col-span-8 col-span-1">
-                    <ChallengeHeader challenge={challenge}/>
+                    <ChallengeWinners challenge={challenge}/>
+                    <PostWidget getPosts={()=>getPostsByChallenge(challenge)} widgetHeader="All Submissions"/>                
                 </div>
-            <div className="lg:col-span-4 col-span-1">
-                <div className="lg:sticky relative lg:top-8 ">
-                    <ChallengeDetail challenge={challenge}/>
-                </div>
+
             </div>
-            <div className='lg:col-span-8 col-span-1'>
-                <PostWidget getPosts={()=>getPostsByChallenge(challenge)} widgetHeader="All Submissions"/>                
-            </div>
-        </div>
         </div>
     );
 }

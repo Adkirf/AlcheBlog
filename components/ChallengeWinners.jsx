@@ -4,15 +4,11 @@ import Link from 'next/link';
 
 import {getChallengeWinners} from "../services"
 import { PostCarousel } from '@/sections';
-import {Countdown} from "./"
+import {Countdown} from "."
 
 const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 1024 },
-      items: 5,
-    },
     desktop: {
-      breakpoint: { max: 1024, min: 768 },
+      breakpoint: { max: 4000, min: 768 },
       items: 3,
     },
     tablet: {
@@ -38,10 +34,10 @@ const ChallengeHeader = ({challenge}) => {
     return (
         <div>
         {winners &&  <PostCarousel posts={winners} responsive={responsive}/> }
-        <div className="text-center mt-4 pt-4 pb-4 relative rounded-lg bg-black bg-opacity-20">
+        <div className="text-center pt-4 pb-4 mb-16 relative rounded-lg bg-black bg-opacity-20">
             {winners.length>0?(
                 <div> 
-                    <h2 className='font-bold text-2xl text-slate-900 mb-8'> 🏆  Visit the Winners </h2>
+                    <h2 className='font-bold text-2xl text-slate-900 mb-2'> 🏆  Visit the Winners </h2>
                     {winners.map((winner,index)=>(
                         <Link href={winner.frontmatter.authorLink} key={index} className='flex flex-row justify-center items-center mb-2'>
                             <h2 className='text-bold text-xl text-pink-500 mr-2'>{index + 1}. </h2>

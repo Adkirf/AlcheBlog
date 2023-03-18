@@ -27,8 +27,8 @@ const responsive = {
 const PostCarousel = ({responsive, posts}) => {
   
   return (
-    <div className="mb-8">
-      <Carousel infinite responsive={responsive} itemClass="px-4">
+    <div className="mb-4">
+      <Carousel infinite responsive={responsive} itemClass="px-4 w-full">
         {posts.map((post, index) => (
           <FeaturedPostCard key={index} post={post} rank={post.postExtras.rank}/>
         ))}
