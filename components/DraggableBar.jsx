@@ -32,7 +32,9 @@ function useDragger(circleId, parentId) {
 
       const onMouseDown = (e) => {
         isClicked.current = true;
-        coords.current.startX = e.clientX;
+        const clientX = e.touches? e.touches[0].clientX  : e.clientX;
+
+        coords.current.startX = clientX;
       }
   
       const onMouseUp = (e) => {
@@ -42,11 +44,15 @@ function useDragger(circleId, parentId) {
   
       const onMouseMove = (e) => {
         if (!isClicked.current) return;
-  
-        const nextX = e.clientX - coords.current.startX + coords.current.lastX;
+        
+
+        const clientX = e.touches? e.touches[0].clientX  : e.clientX;
+        const nextX = clientX - coords.current.startX + coords.current.lastX;
   
         target.style.left = `${nextX}px`;
+        console.log(clientX);
       }
+
   
       target.addEventListener('mousedown', onMouseDown);
       target.addEventListener('touchstart', onMouseDown);
