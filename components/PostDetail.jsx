@@ -5,15 +5,21 @@ import md from "markdown-it"
 import Link from 'next/link';
 
 import {getPostExtras} from "../services"
+import {DraggableBar} from "./index"
 
 const PostDetail = ({ post }) => {
   const [openPost, setPostExtras] = useState({post})
+  const [newDeepness, setNewDeepness] = useState(0)
+
+
   useEffect(()=>{
     getPostExtras(post)
       .then((result)=>{
         setPostExtras(result)
       })
   },[])
+
+
   
   return (
     <>
@@ -44,7 +50,14 @@ const PostDetail = ({ post }) => {
           </div>
           <h1 className="mb-8 text-3xl font-semibold">{post.frontmatter.title}</h1>
           <div dangerouslySetInnerHTML={{__html: md().render(post.content)}}>
-            </div>
+          </div>
+          <div className='mt-16'
+          onMouseUp={()=>console.log(newDeepness)}
+          onTouchEnd={()=>console.log(newDeepness)}
+          >
+            <h2 className='text-lg italic mb-2'>How deep is this article? </h2>
+            <DraggableBar setDeepness={setNewDeepness}/>
+          </div>
         </div>
       </div>
     </>

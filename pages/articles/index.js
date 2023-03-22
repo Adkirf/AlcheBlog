@@ -5,7 +5,7 @@ import matter from "gray-matter";
 
 import { FeaturedPostCard, DraggableBar } from '../../components';
 
-import {init, getCategories, getPostsByCategories} from "../../services";
+import {init, getCategories, getPostsByCategories, sortByDeepness} from "../../services";
 
 export default function Home({posts, challenges}) {
   init(posts, challenges);
@@ -13,6 +13,7 @@ export default function Home({posts, challenges}) {
   const [allCategories, setAllCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedPosts, setSelectedPosts] = useState(posts);
+  const [deepness, setDeepness] = useState(0);
 
   useEffect(() => {
     getCategories()
@@ -22,10 +23,19 @@ export default function Home({posts, challenges}) {
   useEffect(() => {
     async function fetchSelectedPosts() {
       const newPosts = await getPostsByCategories(selectedCategories);
-      setSelectedPosts(newPosts);
+      const sortedPosts = await sortByDeepness(newPosts);
+      setSelectedPosts(sortedPosts);
     }
     fetchSelectedPosts();
   }, [selectedCategories]);
+
+  useEffect(()=>{
+    async function fetchSortedPosts(){
+      const sortedPosts = await sortByDeepness(selectedPosts);
+      setSelectedPosts(sortedPosts);
+    }
+    fetchSortedPosts(selectedPosts);
+  },[deepness])
 
   function handleClick(category) {
     setSelectedCategories(prevSelectedCategories => {
@@ -36,6 +46,8 @@ export default function Home({posts, challenges}) {
       }
     });
   }
+
+  
   
   const sortedCategories = [...selectedCategories, ...allCategories.filter((c) => !selectedCategories.includes(c))];
 
@@ -61,7 +73,7 @@ export default function Home({posts, challenges}) {
                 </button>
               ))}
             </div>
-            <DraggableBar />
+            <DraggableBar setDeepness={setDeepness}/>
 
           </div>
         </div>

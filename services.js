@@ -1,11 +1,14 @@
 import { request, gql } from 'graphql-request';
 
+
+
 let initializedPromise = false;
 
 const posts = [];
 const recentChallenges = [];
 const currentChallenges = [];
 const categories = [];
+
 
 export function init(initPosts, challenges) {
   if (!initializedPromise) {
@@ -172,3 +175,13 @@ export const getComments = async (slug) => {
   return null;
 };
 
+export const sortByDeepness = async (posts) => {
+  await initializedPromise;
+
+  let result = posts;
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
