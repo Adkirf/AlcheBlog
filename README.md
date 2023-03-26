@@ -44,7 +44,6 @@ This project is used components from these tutorials:
    - [Link] (https://www.youtube.com/watch?v=9rCXE-mcO7Q)
 
 
-<!-- CONTACT -->
 
 ## Contact
 
