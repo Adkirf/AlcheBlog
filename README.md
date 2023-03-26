@@ -1,38 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AlcheBlog
 
-## Getting Started
+### A Blog Website to host and record tech-writting competitions. 
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+[See Demo Website](https://alche-blog.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Table of contents
+* About
+* Outlook
+* Contact
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## About The Project
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+AlcheBlog is project dedicated to the [Alchemy University](https://twitter.com/AlchemyLearn), which regularily hosts competitions for writting technical articles about a certain Web3 related topic. It consits of two main components: 1) Support the moderators with the hosting and recording Challenges, and 2) Support the writters by offering a publicly viewable platform for their articles. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Because processes and solutions for both aspects already exsist, AlcheBlog aims to be a integratible solution. This means minimizing the friction between using AlcheBlog vs. a currently used solution. And because the service should be for free, all functionalities must work using free tiers. 
 
-## Learn More
+Currenlty AlcheBlog is a statically generated site. New articles and Challenges can only be submitted by individuals with access to the github repository. Moderators can update the Blogs content by creating and adding a markdown file representing a challenge or submission. This solution offers a simple and cost free way to record the challenges. A new Challenge can be added to the AlcheBlog in just a few minutes, by copy and pasting the information posted on discord into a markdown file and committing the changed code. Analog, submitted articles can be added and usinfg the frontmatter linked to challenges and the authors. AlcheBlog updates everything else automatically. 
+With this set-up AlcheBlog can be used by the moderators to publicly record past, current and upcoming Challenges. 
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Outlook - Next to come 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### User Authentication
+With discord being the primary platform, users will be able to sign up using their Discord. At this point AlcheBlog will use nextjs to authenticate the user and change the viewable content depending on the current state of the session. 
 
-## Deploy on Vercel
+### User Submission
+Until this point AlcheBlog is running serverless, making use of nextjs. In order to manage the interactions of participants such as votes and links to Challenge submissions a database is required. 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### User Accounts
+The last step is to automate the process of uploading articles to the AlcheBlog. The main issue here is to find enough cost-free storage for all articles. While free tier are sufficient to store simple user submissions in form of votes are links, entire articles will require a more creative solution. 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Token Gating
+With Alchemy University targeting Web3, a Token Gated access seems to be appropriate. In this step the authentication process via discord will be replaced with a authentication via the already existing Alchemy University NFT. 
+
+
+## Acknowledgments
+
+This project is used components from these tutorials: 
+   - [Link](https://www.youtube.com/watch?v=HYv55DhgTuA)
+   - [Link](https://www.youtube.com/watch?v=0aPLk2e2Z3g)
+   - [Link] (https://www.youtube.com/watch?v=9rCXE-mcO7Q)
+
+
+<!-- CONTACT -->
+
+## Contact
+
+Your Name - [@adkirf](https://twitter.com/adkirf)
+
+Project Link: [Adkirf Portfolio](https://portfolio-v2-nu-ivory.vercel.app/)
+
+If you have any suggestions that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
