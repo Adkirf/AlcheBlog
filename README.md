@@ -47,7 +47,7 @@ This project is used components from these tutorials:
 
 ## Contact
 
-Your Name - [@adkirf](https://twitter.com/adkirf)
+Twitter - [@adkirf](https://twitter.com/adkirf)
 
 Project Link: [Adkirf Portfolio](https://portfolio-v2-nu-ivory.vercel.app/)
 
