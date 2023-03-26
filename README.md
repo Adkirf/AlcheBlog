@@ -41,7 +41,7 @@ With Alchemy University targeting Web3, a Token Gated access seems to be appropr
 This project is used components from these tutorials: 
    - [Link](https://www.youtube.com/watch?v=HYv55DhgTuA)
    - [Link](https://www.youtube.com/watch?v=0aPLk2e2Z3g)
-   - [Link] (https://www.youtube.com/watch?v=9rCXE-mcO7Q)
+   - [Link](https://www.youtube.com/watch?v=9rCXE-mcO7Q)
 
 
 
