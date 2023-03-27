@@ -1,4 +1,4 @@
 ---
-theme: "something", start: "something"; end: "something";
+theme: "something" start: "something" end: "something";
 ---
 asdasdas
