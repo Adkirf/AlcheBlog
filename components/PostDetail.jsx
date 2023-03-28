@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import moment from 'moment';
 
-import md from "markdown-it"
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown'
+
 
 import {getPostExtras} from "../services"
 import {DraggableBar} from "./index"
@@ -49,8 +50,9 @@ const PostDetail = ({ post }) => {
                 
           </div>
           <h1 className="mb-8 text-3xl font-semibold">{post.frontmatter.title}</h1>
-          <div dangerouslySetInnerHTML={{__html: md().render(post.content)}}>
-          </div>
+          {post.content.split(/\r?\n/).map((paragraph,index)=>{
+            return(paragraph===""?<br/>:<ReactMarkdown>{paragraph}</ReactMarkdown>)
+          })}
           <div className='mt-16'
           onMouseUp={()=>console.log(newDeepness)}
           onTouchEnd={()=>console.log(newDeepness)}

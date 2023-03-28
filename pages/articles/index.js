@@ -61,7 +61,7 @@ export default function Home({posts, challenges}) {
             ))}
         </div>
         <div className="col-span-1 ">
-          <div className="sticky relative top-8">
+          <div className="sticky  top-8">
             <div className="bg-white shadow-lg rounded-lg p-4 pb-12 mb-8">
               <h3 className="text-xl mb-4 font-semibold border-b pb-2">Categories</h3>
               {sortedCategories?.map((category, index) => (

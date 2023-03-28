@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
-import md from "markdown-it"
+import ReactMarkdown from 'react-markdown'
+
 import moment from "moment"
 
 import { ChallengeCover } from '.'
@@ -10,9 +11,12 @@ const ChallengeDetail = ({challenge}) => {
   const [submissions, setSubmissions] = useState("0")
 
   useEffect(()=>{
+    
     getPostsByChallenge(challenge)
       .then(result=>setSubmissions(result.length));
   });
+
+
 
 
   return (
@@ -34,8 +38,9 @@ const ChallengeDetail = ({challenge}) => {
             </div>
           </div>
           <h1 className="mb-4 text-3xl font-semibold">{challenge.frontmatter.description}</h1>
-          <div dangerouslySetInnerHTML={{__html: md().render(challenge.content)}}>
-          </div>
+          {challenge.content.split(/\r?\n/).map((paragraph,index)=>{
+            return(paragraph===""?<br/>:<ReactMarkdown>{paragraph}</ReactMarkdown>)
+          })}
       </div>
     </div>
 
